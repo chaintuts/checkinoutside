@@ -1,18 +1,15 @@
 /* This script retireves geolocation data and performs check ins via AJAX
 *
 * Author: Josh McIntyre
-*
 */
 
 var Location = function(){
 
-	/* Define private functions for this module
-	*
-	*/
+	// Define private functions for this module
+	
 		/* This function marks up the location data on the page
 		*
 		* Argument: locationData
-		*
 		*/
 		markupLocationData : function markupLocationData(locationData)
 		{
@@ -21,9 +18,7 @@ var Location = function(){
 				document.getElementById("error").innerHTML = locationData.error;
 				document.getElementById("success").innerHTML = locationData.success;
 
-				/* If there was an error, disable the checkin button
-				*
-				*/
+				// If there was an error, disable the checkin button
 				document.getElementById("checkin_btn").disabled = true;
 			}
 			else
@@ -35,9 +30,7 @@ var Location = function(){
 			}	
 		}
 
-		/* This function retrieves location data from the HTML5 geolocation API
-		*
-		*/
+		// This function retrieves location data from the HTML5 geolocation API
 		queryLocationData : function queryLocationData()
 		{
 
@@ -75,9 +68,7 @@ var Location = function(){
 			}
 		}
 
-		/* This function sumbits the checkin to the backend
-		*
-		*/
+		// This function sumbits the checkin to the backend
 		submitCheckin : function submitCheckin()
 		{
 			var ajax = new XMLHttpRequest();
@@ -94,7 +85,6 @@ var Location = function(){
 
 						/* Once there is a successful submission, disable the checkin button
 						* to avoid annoying multiple emails
-						*
 						*/
 						document.getElementById("checkin_btn").disabled = true;
 					}
@@ -115,22 +105,16 @@ var Location = function(){
 			ajax.send();
 		}
 
-	/* Return a public interface to this module
-	*
-	*/
+	// Return a public interface to this module
 	return {
 
-		/* This function retrieves location data and marks it up on the page
-		*
-		*/
+		// This function retrieves location data and marks it up on the page
 		getLocationData : function getLocationData()
 		{
 			queryLocationData();
 		},
 
-		/* This function submits location data to the backend for a checkin
-		*
-		*/
+		// This function submits location data to the backend for a checkin
 		checkin : function checkin()
 		{
 			submitCheckin();

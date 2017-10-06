@@ -3,19 +3,14 @@
 /* This file marks up the check in page
 *
 * Author: Josh McIntyre
-*
 */
 
 session_start();
 
-/* Check if the user is logged in
-*
-*/
+// Check if the user is logged in
 if (isset($_SESSION["loggedin"]))
 {
-	/* Mark up the main check in page
-	*
-	*/
+	// Mark up the main check in page
 	echo "<!DOCTYPE html><html>";
 	echo "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>Checkin Outside | Checkin</title>";
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"><script src=\"location.js\" type=\"text/javascript\"></script></head>";
@@ -30,9 +25,7 @@ if (isset($_SESSION["loggedin"]))
 }
 else
 {
-	/* Redirect to the login page
-	*
-	*/
+	// Redirect to the login page
 	header("Location: login.php");
 	die();
 }

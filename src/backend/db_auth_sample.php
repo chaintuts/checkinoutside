@@ -4,7 +4,6 @@
 * Configure with your own database user information and rename to "db_auth.php"
 *
 * Author: Josh McIntyre
-*
 */
 
 $MYSQL_USERNAME = "MyUser";

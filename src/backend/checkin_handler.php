@@ -3,35 +3,27 @@
 /* This file processes a user checkin
 *
 * Author: Josh McIntyre
-*
 */
 
 session_start();
 
 require("db_auth.php");
 
-/* Check if the user is logged in
-*
-*/
+// Check if the user is logged in
 if (isset($_SESSION["loggedin"]))
 {
-	/* Get the location and checkin time from GET
-	*
-	*/
+	// Get the location and checkin time from GET
 	$location = $_GET["location"];
 	$time_retrieved = $_GET["time_retrieved"];
 
 	/* If the location string is set, check in
-	* Otherwise, return an error
-	*
+	* Otherwise, return an error 
 	*/
 	if (! ($location == ""))
 	{
 		$latlon = explode(",", $location);
 
-		/* This block establishes a connection with the MySQL database
-		*
-		*/
+		// This block establishes a connection with the MySQL database
 		$database = new mysqli("localhost", $MYSQL_USERNAME, $MYSQL_PASSWORD, "CheckinDB");
 
 		if ($database -> connect_errno > 0)
@@ -42,6 +34,7 @@ if (isset($_SESSION["loggedin"]))
 		$checkin_query = "SELECT Email, Name FROM CONTACTS WHERE UserId=".$_SESSION["userid"].";";
 		$query_result = $database -> query($checkin_query);
 
+		// This block sends out the automated emails to the configured users
 		while ($row = $query_result -> fetch_assoc())
 		{
 			$email = $row["Email"];
@@ -77,9 +70,7 @@ if (isset($_SESSION["loggedin"]))
 }
 else
 {
-	/* Redirect to the login page
-	*
-	*/
+	// Redirect to the login page
 	header("Location: login.php");
 	die();
 }

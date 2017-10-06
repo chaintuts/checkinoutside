@@ -1,17 +1,12 @@
 /* This file creates a database and several tables for the CheckinOutside application
 *
 * Author: Josh McIntyre
-*
 */
 
-/* This block creates the database
-*
-*/
+/* This block creates the database */
 CREATE DATABASE CheckinDB;
 
-/* This block creates related tables to store the user's authentication and contact data
-*
-*/
+/* This block creates related tables to store the user's authentication and contact data */
 USE CheckinDB;
 
 CREATE TABLE USERS

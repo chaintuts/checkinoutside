@@ -3,7 +3,6 @@
 /* This file marks up the login form
 *
 * Author: Josh McIntyre
-*
 */
 
 session_start();
