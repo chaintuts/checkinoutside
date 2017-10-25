@@ -7,10 +7,7 @@ var Location = function(){
 
 	// Define private functions for this module
 	
-		/* This function marks up the location data on the page
-		*
-		* Argument: locationData
-		*/
+		// This function marks up the location data on the page
 		markupLocationData : function markupLocationData(locationData)
 		{
 			if (locationData.error != "")

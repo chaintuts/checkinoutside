@@ -2,7 +2,6 @@
 #
 # Author: Josh McIntyre
 #
-#
 
 # Do not include files with MySQL or web authentication information
 src/backend/db_auth.php
