@@ -94,10 +94,11 @@ var Location = function(){
 
 			var location = document.getElementById("location").innerHTML;
 			var timeRetrieved = document.getElementById("time_retrieved").innerHTML;
+			var activity = document.getElementById("activity").value;
 			location = encodeURIComponent(location);
 			timeRetrieved = encodeURIComponent(timeRetrieved);
 
-			ajax.open("GET", "checkin_handler.php?location=" + location + "&time_retrieved=" + timeRetrieved, true);
+			ajax.open("GET", "checkin_handler.php?location=" + location + "&time_retrieved=" + timeRetrieved + "&activity=" + activity, true);
 		
 			ajax.send();
 		}

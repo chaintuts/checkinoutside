@@ -15,6 +15,7 @@ if (isset($_SESSION["loggedin"]))
 	// Get the location and checkin time from GET
 	$location = $_GET["location"];
 	$time_retrieved = $_GET["time_retrieved"];
+	$activity = $_GET["activity"];
 
 	/* If the location string is set, check in
 	* Otherwise, return an error 
@@ -48,7 +49,17 @@ if (isset($_SESSION["loggedin"]))
 			$message .= "<a href=\"https://www.openstreetmap.org/?mlat=".$latlon[0];
 			$message .= "&mlon=".$latlon[1]."&zoom=16";
 			$message .= "#map=16/".$latlon[0]."/".$latlon[1];
-			$message .= "\">Open Street Map</a><br><br>";
+			$message .= "\">Open Street Map</a><br>";
+			
+			if (! ($activity == ""))
+			{
+				$message .= "<p>Today ".$_SESSION["username"]." is ".$activity."!</p>";
+			}
+			else
+			{
+				$message .= "<p>".$_SESSION["username"]." didn't specify an activity, but is surely having fun!</p>";
+			}
+			
 			$message .= "Have a great day!";
 
 			$headers = "From: checkinoutside@jmcintyre.net\r\n";
